@@ -1,1 +1,38 @@
 # Estoque_Comercio
+
+## Clonar o repositorio
+1. Na sua maquina abra o git bash e escreva ```git clone LINK DO REPOSITORIO```
+2. Verifique se está na branch certa através de ```git branch -a``` (vai aparecer ```*main```)
+3. Faça ```git pull origin main``` no terminal do projeto para baixar tudo que foi commitado
+
+## Dependencias do BackEnd
+````
+• npm init -y (Inicializar projeto)
+• npm install express cors sequelize sqlite3 dotenv (Dependências principais )
+• npm install --save-dev nodemon (Dependências de desenvolvimento )
+````
+## Dependencias do FrontEnd
+````
+• npx create-vite@latest frontend (Criar projeto React )
+
+- Dentro da pasta vite-project
+• npm install (Instalar dependências )
+• npm install axios (Instalar Axios )
+````
+
+## Subir para o repositorio
+1. Faça ```git pull origin main``` para ter certaza que não está com conflito de informações
+* Vai aparecer a mensagem (Depois disso segue próximos passos) 
+``` 
+    * branch   main  -> FETCH_HEAD     Already up to date
+```
+
+2. Faça ```git add .```
+3. Faça ```git commit -m "TITULO DO COMMIT"```
+4. Faça ```git push origin main``` para subir as novas informações
+
+## Rodar a aplicação
+1. Abra o terminal e entre na pasta FronEnd através de ```cd FrontEnd```
+2. Rode no terminal ```npm run dev```
+3. Abra um novo teminal (não feche o que está com o front aberto) e entre na pasta BackEnd através de ```cd BackEnd```
+4. Rode no novo terminal ```node src/server.js```
