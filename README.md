@@ -4,6 +4,10 @@
 1. Na sua maquina abra o git bash e escreva ```git clone LINK DO REPOSITORIO```
 2. Verifique se está na branch certa através de ```git branch -a``` (vai aparecer ```*main```)
 3. Faça ```git pull origin main``` no terminal do projeto para baixar tudo que foi commitado
+   * Vai aparecer a mensagem abaixo quando não tiver modificações e as modificações quando houver
+``` 
+    * branch   main  -> FETCH_HEAD     Already up to date
+```
 
 ## Dependencias do BackEnd
 ````
@@ -28,7 +32,7 @@
 
 ## Subir para o repositorio
 1. Faça ```git pull origin main``` para ter certaza que não está com conflito de informações
-* Vai aparecer a mensagem (Depois disso segue próximos passos) 
+* Vai aparecer a mensagem abaixo quando não tiver modificações e as modificações quando houver (Depois disso segue próximos passos) 
 ``` 
     * branch   main  -> FETCH_HEAD     Already up to date
 ```
