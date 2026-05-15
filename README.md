@@ -13,12 +13,12 @@
 * PS: Rodar na sua maquina apenas as dependencias necessárias. O VsCode avisa qual está faltando 
 ````
 • npm init -y (Inicializar projeto) (Não precisa rodar novamente)
-• npm install express cors sequelize sqlite3 dotenv (Dependências principais) ( todas devem rodar ao clonar o repositorio)
+• npm install express cors sequelize sqlite3 dotenv (Dependências principais) (todas devem rodar ao clonar o repositorio caso vá mexer no back-end)
 • npm install --save-dev sequelize-cli (Dependências de desenvolvimento)
 • npm install --save-dev nodemon (reinicia o servidor automaticamente)
 ````
 
-## Criação de arquivos BackEnd
+## Criação de arquivos BackEnd (Não precisa rodar ao clonar)
 1. Cria a pasta src
 2. Dentro da src roda ```npx sequelize-cli init``` gerando a estrutura de desenvolvimento
 
