@@ -2,7 +2,7 @@
 
 ## Clonar o repositorio
 1. Na sua maquina abra o git bash e escreva ```git clone LINK DO REPOSITORIO```
-   PS: O link do repositório está em ```<>code```. É o ```HTTTPS```
+   * PS: O link do repositório está em ```<>code```. É o ```HTTTPS```
 2. Verifique se está na branch certa através de ```git branch -a``` (vai aparecer ```*main```)
 3. Faça ```git pull origin main``` no terminal do projeto para baixar tudo que foi commitado
    * Vai aparecer a mensagem abaixo quando não tiver modificações e as modificações quando houver
