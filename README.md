@@ -41,6 +41,9 @@
 3. Faça ```git commit -m "TITULO DO COMMIT"```
 4. Faça ```git push origin main``` para subir as novas informações
 
+## Abrir o banco de dados
+```npx sequelize-cli db:migrate```
+
 ## Rodar a aplicação
 1. Abra o terminal e entre na pasta FronEnd através de ```cd FrontEnd```
 2. Rode no terminal ```npm run dev```
