@@ -49,3 +49,6 @@
 2. Rode no terminal ```npm run dev```
 3. Abra um novo teminal (não feche o que está com o front aberto) e entre na pasta BackEnd através de ```cd BackEnd```
 4. Rode no novo terminal ```node src/server.js```
+
+## Rotas utilizadas
+![](./img/rotas.png)
