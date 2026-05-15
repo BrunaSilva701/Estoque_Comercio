@@ -10,8 +10,9 @@
 ```
 
 ## Dependencias do BackEnd
+* PS: Rodar na sua maquina apenas as dependencias necessárias. O VsCode avisa qual está faltando 
 ````
-• npm init -y (Inicializar projeto)
+• npm init -y (Inicializar projeto) (Não precisa rodar novamente)
 • npm install express cors sequelize sqlite3 dotenv (Dependências principais) ( todas devem rodar ao clonar o repositorio)
 • npm install --save-dev sequelize-cli (Dependências de desenvolvimento)
 • npm install --save-dev nodemon (reinicia o servidor automaticamente)
@@ -22,8 +23,9 @@
 2. Dentro da src roda ```npx sequelize-cli init``` gerando a estrutura de desenvolvimento
 
 ## Dependencias do FrontEnd
+* PS: Rodar na sua maquina apenas as dependencias necessárias. O VsCode avisa qual está faltando  
 ````
-• npx create-vite@latest frontend (Criar projeto React )
+• npx create-vite@latest frontend (Criar projeto React) (Não precisa rodar novamente)
 
 - Dentro da pasta vite-project
 • npm install (Instalar dependências )
