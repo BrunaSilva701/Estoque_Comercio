@@ -14,8 +14,8 @@
 * PS: Rodar na sua maquina apenas as dependencias necessárias. O VsCode avisa qual está faltando 
 ````
 • npm init -y (Inicializar projeto) (Não precisa rodar novamente)
-• npm install express cors sequelize sqlite3 dotenv (Dependências principais) (todas devem rodar ao clonar o repositorio)
-• npm install --save-dev sequelize-cli (Dependências de desenvolvimento)
+• npm install express cors sequelize sqlite3 dotenv (Dependências principais) 
+• npm install --save-dev sequelize-cli (Dependências de desenvolvimento) (todas devem rodar ao clonar o repositorio pois vai permitir os testes)
 • npm install --save-dev nodemon (reinicia o servidor automaticamente)
 ````
 
