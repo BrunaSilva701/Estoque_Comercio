@@ -11,12 +11,14 @@
 
 ## Dependencias do BackEnd
 * PS: Rodar cada dependencia dentro da pasta especifica. Nesse caso, a ```BackEnd```
-* PS: Rodar na sua maquina apenas as dependencias necessárias. O VsCode avisa qual está faltando 
+* PS: Rodar na sua maquina apenas a dependencia necessária, ou seja, ```npm install```. Caso seja necessário rodar outra dependencia o projeto não vai iniciar e o  VsCode vai avisar que está faltando 
 ````
-• npm init -y (Inicializar projeto) (não rodar novamente)
-• npm install express cors sequelize sqlite3 dotenv (Dependências principais) (não rodar novamente)
-• npm install --save-dev sequelize-cli (Dependências de desenvolvimento) (não rodar novamente)
-• npm install --save-dev nodemon (reinicia o servidor automaticamente) (não rodar novamente)
+• npm init -y (Inicializar projeto) 
+• npm install express cors sequelize sqlite3 dotenv (Dependências principais) 
+• npm install --save-dev sequelize-cli (Dependências de desenvolvimento) 
+• npm install --save-dev nodemon (reinicia o servidor automaticamente)
+
+- Rodar ao clonar
 • npm install (todas devem rodar ao clonar o repositorio pois vai permitir os testes)
 ````
 
@@ -26,13 +28,16 @@
 
 ## Dependencias do FrontEnd
 * PS: Rodar cada dependencia dentro da pasta especifica. Nesse caso, a ```FrontEnd```
-* PS: Rodar na sua maquina apenas as dependencias necessárias. O VsCode avisa qual está faltando  
+* PS: Rodar na sua maquina apenas as dependencias necessárias, ou seja, ```npm install```. Caso seja necessário rodar outra dependencia o projeto não vai iniciar e o  VsCode vai avisar que está faltando 
 ````
 • npx create-vite@latest frontend (Criar projeto React) (Não precisa rodar novamente)
 
 - Dentro da pasta vite-project
-• npm install (Instalar dependências )
+• npm install (Instalar dependências ) 
 • npm install axios (Instalar Axios )
+
+- Rodar ao clonar
+• npm install (Instalar dependências ) (todas devem rodar ao clonar o repositorio pois vai permitir os testes)
 ````
 
 ## Subir para o repositorio
