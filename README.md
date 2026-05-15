@@ -13,10 +13,11 @@
 * PS: Rodar cada dependencia dentro da pasta especifica. Nesse caso, a ```BackEnd```
 * PS: Rodar na sua maquina apenas as dependencias necessárias. O VsCode avisa qual está faltando 
 ````
-• npm init -y (Inicializar projeto) (Não precisa rodar novamente)
-• npm install express cors sequelize sqlite3 dotenv (Dependências principais) 
-• npm install --save-dev sequelize-cli (Dependências de desenvolvimento) (todas devem rodar ao clonar o repositorio pois vai permitir os testes)
-• npm install --save-dev nodemon (reinicia o servidor automaticamente)
+• npm init -y (Inicializar projeto) (não rodar novamente)
+• npm install express cors sequelize sqlite3 dotenv (Dependências principais) (não rodar novamente)
+• npm install --save-dev sequelize-cli (Dependências de desenvolvimento) (não rodar novamente)
+• npm install --save-dev nodemon (reinicia o servidor automaticamente) (não rodar novamente)
+• npm install (todas devem rodar ao clonar o repositorio pois vai permitir os testes)
 ````
 
 ## Criação de arquivos BackEnd (Não precisa rodar ao clonar)
