@@ -1,48 +1,79 @@
-//EXEMPLO CONTROLLER
-const { Aluno } = require("../models");
-async function listar(req, res) {
-try {
-const alunos = await Aluno.findAll();
-res.json(alunos);
-} catch {
-res.status(500).json({ erro: "Erro ao listar alunos" });
-}
-}
-async function buscarPorId(req, res) {
-try {
-const aluno = await Aluno.findByPk(req.params.id);
-if (!aluno) return res.status(404).json({ erro: "Aluno não encontrado" });
-res.json(aluno);
-} catch {
-res.status(500).json({ erro: "Erro ao buscar aluno" });
-}
-}
-async function criar(req, res) {
-try {
-const novo = await Aluno.create(req.body);
-res.status(201).json(novo);
-} catch {
-res.status(500).json({ erro: "Erro ao criar aluno" });
-}
-}
-async function atualizar(req, res) {
-try {
-const aluno = await Aluno.findByPk(req.params.id);
-if (!aluno) return res.status(404).json({ erro: "Aluno não encontrado" });
-await aluno.update(req.body);
-res.json(aluno);
-} catch {
-res.status(500).json({ erro: "Erro ao atualizar aluno" });
-}
-}
-async function excluir(req, res) {
-try {
-const aluno = await Aluno.findByPk(req.params.id);
-if (!aluno) return res.status(404).json({ erro: "Aluno não encontrado" });
-await aluno.destroy();
-res.json({ mensagem: "Aluno removido com sucesso!" });
-} catch {
-res.status(500).json({ erro: "Erro ao excluir aluno" });
-}
-}
-module.exports = { listar, buscarPorId, criar, atualizar,excluir};
+const { Produto } = require('../models');
+
+module.exports = {
+  // Listar todos os produtos
+  async index(req, res) {
+    try {
+      const produtos = await Produto.findAll();
+      return res.status(200).json(produtos);
+    } catch (error) {
+      return res.status(500).json({ error: 'Erro ao buscar produtos.' });
+    }
+  },
+
+  // Buscar um produto pelo ID
+  async show(req, res) {
+    try {
+      const { id } = req.params;
+      const produto = await Produto.findByPk(id);
+
+      if (!produto) {
+        return res.status(404).json({ error: 'Produto não encontrado.' });
+      }
+
+      return res.status(200).json(produto);
+    } catch (error) {
+      return res.status(500).json({ error: 'Erro ao buscar o produto.' });
+    }
+  },
+
+  // Criar um novo produto
+  async store(req, res) {
+    try {
+      const { descricao, preco, marca, cor, quantidade } = req.body;
+      const produto = await Produto.create({ descricao, preco, marca, cor, quantidade });
+      
+      return res.status(201).json(produto);
+    } catch (error) {
+      return res.status(400).json({ error: 'Erro ao criar produto. Verifique os dados.' });
+    }
+  },
+
+  // Atualizar um produto existente
+  async update(req, res) {
+    try {
+      const { id } = req.params;
+      const { descricao, preco, marca, cor, quantidade } = req.body;
+
+      const produto = await Produto.findByPk(id);
+
+      if (!produto) {
+        return res.status(404).json({ error: 'Produto não encontrado.' });
+      }
+
+      await produto.update({ descricao, preco, marca, cor, quantidade });
+
+      return res.status(200).json(produto);
+    } catch (error) {
+      return res.status(400).json({ error: 'Erro ao atualizar produto.' });
+    }
+  },
+
+  // Excluir um produto
+  async delete(req, res) {
+    try {
+      const { id } = req.params;
+      const produto = await Produto.findByPk(id);
+
+      if (!produto) {
+        return res.status(404).json({ error: 'Produto não encontrado.' });
+      }
+
+      await produto.destroy();
+
+      return res.status(204).send(); // Sucesso sem conteúdo
+    } catch (error) {
+      return res.status(500).json({ error: 'Erro ao deletar produto.' });
+    }
+  }
+};
