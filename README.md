@@ -59,7 +59,7 @@
 ## Rodar a aplicação 
 **FRONTEND**
 1. Abra o terminal e entre na pasta FronEnd através de ```cd FrontEnd```
-2. Acesse a pasta vite-project através de ```cd vite-project````
+2. Acesse a pasta vite-project através de ````cd vite-project````
 3. Rode no terminal do FrontEnd ```npm run dev```
 4. Coloque o link que aparecer no seu navegador para ver as telas
 
