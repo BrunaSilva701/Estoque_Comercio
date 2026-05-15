@@ -2,7 +2,7 @@
 
 ## Clonar o repositorio
 1. Na sua maquina abra o git bash e escreva ```git clone LINK DO REPOSITORIO```
-   * PS: O link do repositório está em ```<>code```. É o ```HTTTPS```
+   * PS: O link do repositório está em ```<>code```. É o ```HTTPS```
 2. Verifique se está na branch certa através de ```git branch -a``` (vai aparecer ```*main```)
 3. Faça ```git pull origin main``` no terminal do projeto para baixar tudo que foi commitado
    * Vai aparecer a mensagem abaixo quando não tiver modificações e as modificações quando houver
@@ -50,16 +50,22 @@
 
 2. Faça ```git add .```
 3. Faça ```git commit -m "TITULO DO COMMIT"```
+   * PS: O titulo do commit deve ter relação com o que foi commitado para manter o histórico organizado e compreensível
 4. Faça ```git push origin main``` para subir as novas informações
 
 ## Abrir o banco de dados
 ```npx sequelize-cli db:migrate```
 
 ## Rodar a aplicação 
+**FRONTEND**
 1. Abra o terminal e entre na pasta FronEnd através de ```cd FrontEnd```
-2. Rode no terminal do FrontEnd ```npm run dev```
-3. Abra um novo teminal (não feche o que está com o front aberto) e entre na pasta BackEnd através de ```cd BackEnd```
-4. Rode no terminal BackEnd ```node src/server.js```
+2. Acesse a pasta vite-project através de ```cd vite-project````
+3. Rode no terminal do FrontEnd ```npm run dev```
+4. Coloque o link que aparecer no seu navegador para ver as telas
+
+**BACKEND**
+1. Abra um novo teminal (não feche o que está com o front aberto) e entre na pasta BackEnd através de ```cd BackEnd```
+2. Rode no terminal BackEnd ```node src/app.js```
 
 ## Rotas utilizadas
 ![](./img/rotas.png)
