@@ -10,10 +10,11 @@
 ```
 
 ## Dependencias do BackEnd
+* PS: Rodar cada dependencia dentro da pasta especifica. Nesse caso, a ```BackEnd```
 * PS: Rodar na sua maquina apenas as dependencias necessárias. O VsCode avisa qual está faltando 
 ````
 • npm init -y (Inicializar projeto) (Não precisa rodar novamente)
-• npm install express cors sequelize sqlite3 dotenv (Dependências principais) (todas devem rodar ao clonar o repositorio caso vá mexer no back-end)
+• npm install express cors sequelize sqlite3 dotenv (Dependências principais) (todas devem rodar ao clonar o repositorio)
 • npm install --save-dev sequelize-cli (Dependências de desenvolvimento)
 • npm install --save-dev nodemon (reinicia o servidor automaticamente)
 ````
@@ -23,6 +24,7 @@
 2. Dentro da src roda ```npx sequelize-cli init``` gerando a estrutura de desenvolvimento
 
 ## Dependencias do FrontEnd
+* PS: Rodar cada dependencia dentro da pasta especifica. Nesse caso, a ```FrontEnd```
 * PS: Rodar na sua maquina apenas as dependencias necessárias. O VsCode avisa qual está faltando  
 ````
 • npx create-vite@latest frontend (Criar projeto React) (Não precisa rodar novamente)
@@ -46,11 +48,11 @@
 ## Abrir o banco de dados
 ```npx sequelize-cli db:migrate```
 
-## Rodar a aplicação
+## Rodar a aplicação 
 1. Abra o terminal e entre na pasta FronEnd através de ```cd FrontEnd```
-2. Rode no terminal ```npm run dev```
+2. Rode no terminal do FrontEnd ```npm run dev```
 3. Abra um novo teminal (não feche o que está com o front aberto) e entre na pasta BackEnd através de ```cd BackEnd```
-4. Rode no novo terminal ```node src/server.js```
+4. Rode no terminal BackEnd ```node src/server.js```
 
 ## Rotas utilizadas
 ![](./img/rotas.png)
