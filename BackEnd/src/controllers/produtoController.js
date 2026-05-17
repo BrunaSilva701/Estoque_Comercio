@@ -71,7 +71,7 @@ module.exports = {
 
       await produto.destroy();
 
-      return res.status(204).send(); // Sucesso sem conteúdo
+      return res.status(204).send();
     } catch (error) {
       return res.status(500).json({ error: 'Erro ao deletar produto.' });
     }
