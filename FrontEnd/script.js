@@ -8,8 +8,10 @@ async function listar() {
         <tr>
             <td>${p.id}</td>
             <td>${p.descricao}</td>
-            <td>R$ ${p.preco}</td>
-            <td>${p.quantidade}</td>
+            <td>${p.marca}</td>
+            <td>${p.cor}</td>
+             <td>${p.quantidade}</td>
+            <td>R$ ${p.preco}</td>                                 
             <td><button class="btn-del" onclick="deletar(${p.id})">Remover</button></td>
         </tr>
     `).join('');
