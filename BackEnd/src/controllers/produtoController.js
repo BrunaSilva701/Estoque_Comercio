@@ -2,7 +2,7 @@ const { Produto } = require('../models');
 
 module.exports = {
   // Listar todos os produtos
-  async index(req, res) {
+  async listar(req, res) {
     try {
       const produtos = await Produto.findAll();
       return res.status(200).json(produtos);
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   // Buscar um produto pelo ID
-  async show(req, res) {
+  async buscar(req, res) {
     try {
       const { id } = req.params;
       const produto = await Produto.findByPk(id);
@@ -28,7 +28,7 @@ module.exports = {
   },
 
   // Criar um novo produto
-  async store(req, res) {
+  async criar(req, res) {
     try {
       const { descricao, preco, marca, cor, quantidade } = req.body;
       const produto = await Produto.create({ descricao, preco, marca, cor, quantidade });
@@ -40,7 +40,7 @@ module.exports = {
   },
 
   // Atualizar um produto existente
-  async update(req, res) {
+  async atualizar(req, res) {
     try {
       const { id } = req.params;
       const { descricao, preco, marca, cor, quantidade } = req.body;
@@ -60,7 +60,7 @@ module.exports = {
   },
 
   // Excluir um produto
-  async delete(req, res) {
+  async deletar(req, res) {
     try {
       const { id } = req.params;
       const produto = await Produto.findByPk(id);
