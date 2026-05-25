@@ -1,38 +1,69 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Sistema de Estoque</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Inventário Simples</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>📦 Cadastro de Produtos</h1>
-        <form id="form-produto">
-            <input type="text" id="descricao" placeholder="Descrição (ex: Teclado)" required>
-            <input type="number" id="preco" placeholder="Preço" step="0.01" required>
-            <input type="text" id="marca" placeholder="Marca" required>
-            <input type="text" id="cor" placeholder="Cor" required>
-            <input type="number" id="quantidade" placeholder="Quantidade" required>
-            <button type="submit">Salvar Produto</button>
-        </form>
 
-        <h2>Produtos em Estoque</h2>
+    <div class="container">
+        <h1>Controle de Inventário</h1>
+
+        <div id="secaoCadastrar">
+            <h2>Cadastrar Novo Produto</h2>
+            <form id="formProduto" onsubmit="cadastrarProduto(event)">
+                <div class="form-group">
+                    <label for="nome">Nome do Produto:</label>
+                    <input type="text" id="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" id="quantidade" min="1" required>
+                </div>
+                <button type="submit" class="btn-cadastrar">Cadastrar Produto</button>
+            </form>
+        </div>
+
+        <div id="secaoEditar" style="display: none;">
+            <h2>Editar Produto (<span id="edit-id-label"></span>)</h2>
+            <form id="formEditarProduto" onsubmit="salvarEdicao(event)">
+                <input type="hidden" id="edit-id">
+                <div class="form-group">
+                    <label for="edit-nome">Nome do Produto:</label>
+                    <input type="text" id="edit-nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-quantidade">Quantidade:</label>
+                    <input type="number" id="edit-quantidade" min="1" required>
+                </div>
+                <button type="submit" class="btn-salvar">Salvar Alterações</button>
+                <button type="button" class="btn-cancelar" onclick="fecharEdicao()">Cancelar</button>
+            </form>
+        </div>
+
+        <div class="busca-container">
+            <input type="text" id="inputBusca" placeholder="Pesquisar por ID ou Nome...">
+            <button class="btn-buscar" onclick="buscarProduto()">Buscar</button>
+            <button class="btn-limpar" onclick="limparBusca()">Limpar</button>
+        </div>
+
+        <h2>Produtos Cadastrados</h2>
         <table>
             <thead>
                 <tr>
-                    <th>CÓDIGO</th>
-                    <th>DESCRIÇÃO</th>
-                    <th>MARCA</th>
-                    <th>COR</th>
-                    <th>QTD</th>
-                    <th>PREÇO</th>                   
-                    <th>AÇÃO</th>
+                    <th>ID</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
-            <tbody id="lista-produtos"></tbody>
+            <tbody id="tabelaProdutos">
+                </tbody>
         </table>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

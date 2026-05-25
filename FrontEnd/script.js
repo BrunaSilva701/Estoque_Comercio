@@ -1,43 +1,140 @@
-const api = "http://localhost:3000/produtos";
+// Detecta se a página foi aberta via Live Server (5501) ou direto pelo Node (3000)
+const API_URL = window.location.port === '5501' ? 'http://localhost:3000/produtos' : '/produtos';
 
-async function listar() {
-    const res = await fetch(api);
-    const dados = await res.json();
-    const corpo = document.getElementById('lista-produtos');
-    corpo.innerHTML = dados.map(p => `
-        <tr>
-            <td>${p.id}</td>
-            <td>${p.descricao}</td>
-            <td>${p.marca}</td>
-            <td>${p.cor}</td>
-             <td>${p.quantidade}</td>
-            <td>R$ ${p.preco}</td>                                 
-            <td><button class="btn-del" onclick="deletar(${p.id})">Remover</button></td>
-        </tr>
-    `).join('');
+document.addEventListener('DOMContentLoaded', carregarProdutos);
+
+// 1. LISTAR PRODUTOS (GET)
+async function carregarProdutos() {
+    try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error('Erro ao buscar dados do servidor');
+        const produtos = await response.json();
+        renderizarTabela(produtos);
+    } catch (error) {
+        console.error('Erro ao carregar produtos:', error);
+    }
 }
 
-document.getElementById('form-produto').onsubmit = async (e) => {
-    e.preventDefault();
-    const produto = {
-        descricao: document.getElementById('descricao').value,
-        preco: document.getElementById('preco').value,
-        marca: document.getElementById('marca').value,
-        cor: document.getElementById('cor').value,
-        quantidade: document.getElementById('quantidade').value
-    };
-    await fetch(api, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(produto)
+function renderizarTabela(produtos) {
+    const tabela = document.getElementById('tabelaProdutos');
+    tabela.innerHTML = ''; 
+
+    produtos.forEach(produto => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${produto.id}</td>
+            <td>${produto.nome}</td>
+            <td>${produto.quantidade}</td>
+            <td>
+                <button class="btn-editar" onclick="abrirEdicao('${produto.id}', '${produto.nome}', ${produto.quantidade})">Editar</button>
+                <button class="btn-apagar" onclick="deletarProduto('${produto.id}')">Apagar</button>
+            </td>
+        `;
+        tabela.appendChild(tr);
     });
-    e.target.reset();
-    listar();
-};
-
-async function deletar(id) {
-    await fetch(`${api}/${id}`, { method: 'DELETE' });
-    listar();
 }
 
-listar();
+// 2. CADASTRAR PRODUTO (POST)
+async function cadastrarProduto(event) {
+    event.preventDefault();
+    const nome = document.getElementById('nome').value.trim();
+    const quantidade = document.getElementById('quantidade').value;
+
+    try {
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome, quantidade: parseInt(quantidade, 10) })
+        });
+        
+        if (response.ok) {
+            document.getElementById('formProduto').reset();
+            carregarProdutos();
+        } else {
+            alert('Erro ao cadastrar produto.');
+        }
+    } catch (error) {
+        console.error('Erro no cadastro:', error);
+    }
+}
+
+// 3. CONTROLAR SEÇÕES (EDITAR / CADASTRAR)
+function abrirEdicao(id, nome, quantidade) {
+    document.getElementById('secaoEditar').style.display = 'block';
+    document.getElementById('secaoCadastrar').style.display = 'none';
+
+    document.getElementById('edit-id').value = id;
+    document.getElementById('edit-id-label').innerText = id;
+    document.getElementById('edit-nome').value = nome;
+    document.getElementById('edit-quantidade').value = quantidade;
+}
+
+function fecharEdicao() {
+    document.getElementById('secaoEditar').style.display = 'none';
+    document.getElementById('secaoCadastrar').style.display = 'block';
+    document.getElementById('formEditarProduto').reset();
+}
+
+// 4. SALVAR ALTERAÇÕES (PUT)
+async function salvarEdicao(event) {
+    event.preventDefault();
+    const id = document.getElementById('edit-id').value;
+    const nome = document.getElementById('edit-nome').value.trim();
+    const quantidade = document.getElementById('edit-quantidade').value;
+
+    try {
+        const response = await fetch(`${API_URL}/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome, quantidade: parseInt(quantidade, 10) })
+        });
+        
+        if (response.ok) {
+            fecharEdicao();
+            carregarProdutos();
+        } else {
+            alert('Erro ao atualizar produto.');
+        }
+    } catch (error) {
+        console.error('Erro na edição:', error);
+    }
+}
+
+// 5. APAGAR PRODUTO (DELETE)
+async function deletarProduto(id) {
+    if (confirm(`Deseja apagar o produto com ID ${id}?`)) {
+        try {
+            const response = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+            if (response.ok) {
+                carregarProdutos();
+            } else {
+                alert('Erro ao excluir produto.');
+            }
+        } catch (error) {
+            console.error('Erro na exclusão:', error);
+        }
+    }
+}
+
+// 6. BUSCA
+async function buscarProduto() {
+    const termo = document.getElementById('inputBusca').value.trim();
+    if (!termo) {
+        carregarProdutos();
+        return;
+    }
+    try {
+        const response = await fetch(`${API_URL}?busca=${termo}`);
+        if (response.ok) {
+            const produtos = await response.json();
+            renderizarTabela(Array.isArray(produtos) ? produtos : [produtos]);
+        }
+    } catch (error) {
+        console.error('Erro na busca:', error);
+    }
+}
+
+function limparBusca() {
+    document.getElementById('inputBusca').value = '';
+    carregarProdutos();
+}
