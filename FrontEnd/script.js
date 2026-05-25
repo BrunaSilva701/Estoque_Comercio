@@ -59,7 +59,7 @@ async function cadastrarProduto(event) {
 }
 
 // 3. CONTROLAR SEÇÕES (EDITAR / CADASTRAR)
-function abrirEdicao(id, nome, quantidade) {
+function abrirEdicao(id, descricao, quantidade) {
     document.getElementById('secaoEditar').style.display = 'block';
     document.getElementById('secaoCadastrar').style.display = 'none';
 
