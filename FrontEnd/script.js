@@ -23,10 +23,10 @@ function renderizarTabela(produtos) {
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${produto.id}</td>
-            <td>${produto.nome}</td>
+            <td>${produto.descricao}</td>
             <td>${produto.quantidade}</td>
             <td>
-                <button class="btn-editar" onclick="abrirEdicao('${produto.id}', '${produto.nome}', ${produto.quantidade})">Editar</button>
+                <button class="btn-editar" onclick="abrirEdicao('${produto.id}', '${produto.descricao}', ${produto.quantidade})">Editar</button>
                 <button class="btn-apagar" onclick="deletarProduto('${produto.id}')">Apagar</button>
             </td>
         `;
@@ -37,14 +37,14 @@ function renderizarTabela(produtos) {
 // 2. CADASTRAR PRODUTO (POST)
 async function cadastrarProduto(event) {
     event.preventDefault();
-    const nome = document.getElementById('nome').value.trim();
+    const descricao = document.getElementById('descricao').value.trim();
     const quantidade = document.getElementById('quantidade').value;
 
     try {
         const response = await fetch(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ nome, quantidade: parseInt(quantidade, 10) })
+            body: JSON.stringify({ descricao, quantidade: parseInt(quantidade, 10) })
         });
         
         if (response.ok) {
@@ -65,7 +65,7 @@ function abrirEdicao(id, nome, quantidade) {
 
     document.getElementById('edit-id').value = id;
     document.getElementById('edit-id-label').innerText = id;
-    document.getElementById('edit-nome').value = nome;
+    document.getElementById('edit-descricao').value = descricao;
     document.getElementById('edit-quantidade').value = quantidade;
 }
 
@@ -79,14 +79,14 @@ function fecharEdicao() {
 async function salvarEdicao(event) {
     event.preventDefault();
     const id = document.getElementById('edit-id').value;
-    const nome = document.getElementById('edit-nome').value.trim();
+    const descricao = document.getElementById('edit-descricao').value.trim();
     const quantidade = document.getElementById('edit-quantidade').value;
 
     try {
         const response = await fetch(`${API_URL}/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ nome, quantidade: parseInt(quantidade, 10) })
+            body: JSON.stringify({ descricao, quantidade: parseInt(quantidade, 10) })
         });
         
         if (response.ok) {
