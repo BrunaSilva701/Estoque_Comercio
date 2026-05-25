@@ -1,16 +1,25 @@
 const { Produto } = require('../models');
+const { Op } = require('sequelize');
 
 module.exports = {
   // Listar todos os produtos
   async listar(req, res) {
-    try {
-      const produtos = await Produto.findAll();
-      return res.status(200).json(produtos);
-    } catch (error) {
-      return res.status(500).json({ error: 'Erro ao buscar produtos.' });
-    }
-  },
+  try {
+    const { busca } = req.query;
+    const where = busca
+      ? {
+          descricao: {
+            [Op.like]: `%${busca}%`
+          }
+        }
+      : {};
+    const produtos = await Produto.findAll({ where });
 
+    return res.status(200).json(produtos);
+  } catch (error) {
+    return res.status(500).json({ error: 'Erro ao buscar produtos.' });
+  }
+}
   // Buscar um produto pelo ID
   async buscar(req, res) {
     try {
