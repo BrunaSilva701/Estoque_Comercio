@@ -19,7 +19,7 @@ module.exports = {
   } catch (error) {
     return res.status(500).json({ error: 'Erro ao buscar produtos.' });
   }
-}
+},
   // Buscar um produto pelo ID
   async buscar(req, res) {
     try {
