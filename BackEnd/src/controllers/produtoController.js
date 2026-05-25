@@ -6,13 +6,16 @@ module.exports = {
   async listar(req, res) {
   try {
     const { busca } = req.query;
-    const where = busca
-      ? {
-          descricao: {
-            [Op.like]: `%${busca}%`
-          }
-        }
-      : {};
+    
+const where = busca
+  ? {
+      [Op.or]: [
+        { descricao: { [Op.like]: `%${busca}%` } },
+        { id: !isNaN(busca) ? busca : null }
+      ]
+    }
+  : {};
+
     const produtos = await Produto.findAll({ where });
 
     return res.status(200).json(produtos);
