@@ -9,7 +9,7 @@
 <body>
 
     <div class="container">
-        <h1>Controle de Inventário</h1>
+        <h1>ESTOQUE iTECHNOS</h1>
 
         <div id="secaoCadastrar">
             <h2>Cadastrar Novo Produto</h2>
@@ -19,8 +19,20 @@
                     <input type="text" id="descricao" required>
                 </div>
                 <div class="form-group">
+                    <label for="marca">Fabricante:</label>
+                    <input type="text" id="marca" required>
+                </div>
+                 <div class="form-group">
+                    <label for="cor">Cor:</label>
+                    <input type="text" id="cor" required>
+                </div>
+                <div class="form-group">
                     <label for="quantidade">Quantidade:</label>
                     <input type="number" id="quantidade" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="preco">Preço:</label>
+                    <input type="number" id="preco" min="1" required>
                 </div>
                 <button type="submit" class="btn-cadastrar">Cadastrar Produto</button>
             </form>
@@ -35,8 +47,20 @@
                     <input type="text" id="edit-descricao" required>
                 </div>
                 <div class="form-group">
+                    <label for="edit-marca">Fabricante:</label>
+                    <input type="text" id="edit-marca" required>
+                </div>
+                  <div class="form-group">
+                    <label for="edit-cor">Cor:</label>
+                    <input type="text" id="edit-cor" required>
+                </div>
+                <div class="form-group">
                     <label for="edit-quantidade">Quantidade:</label>
                     <input type="number" id="edit-quantidade" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-preco">Preço:</label>
+                    <input type="number" id="edit-preco" min="1" required>
                 </div>
                 <button type="submit" class="btn-salvar">Salvar Alterações</button>
                 <button type="button" class="btn-cancelar" onclick="fecharEdicao()">Cancelar</button>
@@ -44,7 +68,7 @@
         </div>
 
         <div class="busca-container">
-            <input type="text" id="inputBusca" placeholder="Pesquisar por ID ou Nome...">
+            <input type="text" id="inputBusca" placeholder="Pesquisar por ID ou Descrição...">
             <button class="btn-buscar" onclick="buscarProduto()">Buscar</button>
             <button class="btn-limpar" onclick="limparBusca()">Limpar</button>
         </div>
@@ -53,10 +77,13 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Produto</th>
-                    <th>Quantidade</th>
-                    <th>Ações</th>
+                    <th>CÓDIGO</th>
+                    <th>DESCRIÇÃO</th>
+                    <th>MARCA</th>
+                    <th>COR</th>
+                    <th>QUANTIDADE</th>
+                    <th>PREÇO</th>
+                    <th>AÇÕES</th>
                 </tr>
             </thead>
             <tbody id="tabelaProdutos">
