@@ -20,6 +20,12 @@ function renderizarTabela(produtos) {
     tabela.innerHTML = ''; 
 
     produtos.forEach(produto => {
+        // Converte o preço vindo do banco em formato de moeda Real (R$)
+        const precoFormatado = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        }).format(produto.preco);
+
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${produto.id}</td>
@@ -27,9 +33,9 @@ function renderizarTabela(produtos) {
             <td>${produto.marca}</td>
             <td>${produto.cor}</td>
             <td>${produto.quantidade}</td>
-             <td>${produto.preco}</td>
+             <td>${precoFormatado}</td>
             <td>
-                <button class="btn-editar" onclick="abrirEdicao('${produto.id}', '${produto.descricao}', ${produto.quantidade})">Editar</button>
+                <button class="btn-editar" onclick="abrirEdicao('${produto.id}', '${produto.descricao}', '${produto.marca}', '${produto.cor}', ${produto.quantidade}, '${produto.preco}')">Editar</button>
                 <button class="btn-apagar" onclick="deletarProduto('${produto.id}')">Apagar</button>
             </td>
         `;
