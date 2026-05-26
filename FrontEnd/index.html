@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <label for="preco">Preço:</label>
-                    <input type="number" id="preco" min="1" required>
+                    <input type="number" id="preco" step="0.01" min="0" required>
                 </div>
                 <button type="submit" class="btn-cadastrar">Cadastrar Produto</button>
             </form>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="form-group">
                     <label for="edit-preco">Preço:</label>
-                    <input type="number" id="edit-preco" min="1" required>
+                    <input type="number" id="preco" step="0.01" min="0" required>
                 </div>
                 <button type="submit" class="btn-salvar">Salvar Alterações</button>
                 <button type="button" class="btn-cancelar" onclick="fecharEdicao()">Cancelar</button>
