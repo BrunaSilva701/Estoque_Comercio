@@ -49,10 +49,10 @@
 ```git branch -a```
 
 2. Acesse a branch principal:
-```git checkout main```
+```git checkout develop```
 
-3. Atualize sua branch local com a versão mais recente da `main`:
-```git pull origin main```
+3. Atualize sua branch local com a versão mais recente da `develop`:
+```git pull origin develop```
 
 * Se estiver tudo atualizado, aparecerá algo parecido com:
 ```bash
