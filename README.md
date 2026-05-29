@@ -1,14 +1,28 @@
 # Estoque_Comercio
 
-## Cria uma nova branch
-1. Acesse branches
-2. New branch
-3. Defini um nome para a branch e salva
-
 ## Clonar o repositorio
 1.Copie o link do repositorio
  * PS: O link do repositório está em ```<>code```. É o ```HTTPS```
 2. Na sua maquina abra o git bash em arquivos e escreva ```git clone LINK DO REPOSITORIO```
+
+## Cria uma nova branch (Resitorio clonado pela primeira vez)
+1. Acesse o terminal
+2. Acesse a branch develop ````checkout develop````
+3. Faça um git pull (````git pull origin develop````) para receber todas as informações atualizadas
+4. Crie uma nova branch com base na develop usando ````git checkout -b NOME DA BRANCH````
+5. Verifique se está na branch que você criou usando ````git branch -a```` (comando mostra todas as branches disponiveis)
+6. Se não aparecer ````* NOME DA BRANCH````. Faça: git checkout NOME DA BRANCH
+7. Suba a branch para o repositorio ````git push origin NOME DA BRANCH````
+
+## Cria uma nova branch (Resitorio já na maquina, ou seja, sofre auterações conforme atualização do github)
+1. Virifique as branches disponiveis usando ````git branch -a````
+2. Se no repositorio tiver branches diferentes, faça ````git fetch --prune```` (mostra branches novas e apagadas)
+3. Acesse a branch de desenvolvimento ````git checkout develop````
+4. Puxe as ultimas atualizações: ````git pull origin develop````
+5. Crie uma nova branch com base na develop usando ````git checkout -b NOME DA BRANCH````
+6. Verifique se está na branch que você criou usando ````git branch -a```` (comando mostra todas as branches disponiveis)
+7. Se não aparecer ````* NOME DA BRANCH````. Faça: ````git checkout NOME DA BRANCH````
+8. Suba a branch para o repositorio ````git push origin NOME DA BRANCH````
 
 ## Dependencias do BackEnd
 * PS: Rodar cada dependencia dentro da pasta especifica. Nesse caso, a ```BackEnd```
@@ -48,39 +62,26 @@
 1. Verifique em qual branch você está:
 ```git branch -a```
 
-2. Acesse a branch principal:
-```git checkout develop```
+2. Acesse a branch criada:
+```git checkout NOME DA BRANCH```
 
-3. Atualize sua branch local com a versão mais recente da `develop`:
-```git pull origin develop```
-
-* Se estiver tudo atualizado, aparecerá algo parecido com:
-```bash
-* branch            main       -> FETCH_HEAD
-Already up to date.
-```
-
-4. Acesse a branch que você criou:
-* Primeira vez:
-
-```git checkout -b NOME_DA_BRANCH origin/NOME_DA_BRANCH```
-
-* Próximas vezes:
-```git checkout NOME_DA_BRANCH```
-
-5. Adicione os arquivos modificados:
+3. Adicione os arquivos modificados:
 ```git add .```
 
-6. Faça o commit das alterações:
+4. Faça o commit das alterações:
 ```git commit -m "TÍTULO DO COMMIT"```
 
 * PS: O título do commit deve representar claramente o que foi alterado para manter o histórico organizado e compreensível.
 
-7. Envie as alterações para o repositório remoto:
-```git push origin NOME_DA_BRANCH```
+5. Envie as alterações para o repositório remoto:
+```git push origin NOME DA BRANCH```
 
 ## Abrir o banco de dados (Não rodar ao clonar o repositorio)
 ```npx sequelize-cli db:migrate```
+
+## Pull Request
+1. Vai aparecer uma mensagem automatica no Gitub ````Creat Pull Request````. Caso não, clique em *Contribute* no inicio da página na aba da branch que você criou.
+2. Abra um PR da *nova branch* para a branch *develop*
 
 ## Rodar a aplicação 
 **FRONTEND**
