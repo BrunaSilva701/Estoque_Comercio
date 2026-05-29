@@ -14,6 +14,8 @@
 6. Se não aparecer ````* NOME DA BRANCH````. Faça: git checkout NOME DA BRANCH
 7. Suba a branch para o repositorio ````git push origin NOME DA BRANCH````
 
+   **PS: Abrir uma nova branch para cada auteração**
+
 ## Cria uma nova branch (Resitorio já na maquina, ou seja, sofre auterações conforme atualização do github)
 1. Virifique as branches disponiveis usando ````git branch -a````
 2. Se no repositorio tiver branches diferentes, faça ````git fetch --prune```` (mostra branches novas e apagadas)
@@ -24,6 +26,8 @@
 7. Se não aparecer ````* NOME DA BRANCH````. Faça: ````git checkout NOME DA BRANCH````
 8. Suba a branch para o repositorio ````git push origin NOME DA BRANCH````
 
+   **PS: Abrir uma nova branch para cada auteração**
+   
 ## Dependencias do BackEnd
 * PS: Rodar cada dependencia dentro da pasta especifica. Nesse caso, a ```BackEnd```
 * PS: Rodar na sua maquina apenas a dependencia necessária, ou seja, ```npm install```. Caso seja necessário rodar outra dependencia o projeto não vai iniciar e o VsCode vai avisar que está faltando 
@@ -80,8 +84,8 @@
 ```npx sequelize-cli db:migrate```
 
 ## Pull Request
-1. Vai aparecer uma mensagem automatica no Gitub ````Creat Pull Request````. Caso não, clique em *Contribute* no inicio da página na aba da branch que você criou.
-2. Abra um PR da *nova branch* para a branch *develop*
+1. Vai aparecer uma mensagem automatica no Gitub ````Creat Pull Request````. Caso não, clique em **Contribute** no inicio da página na aba da branch que você criou.
+2. Abra um PR da **nova branch** para a branch **develop**
 
 ## Rodar a aplicação 
 **FRONTEND**
