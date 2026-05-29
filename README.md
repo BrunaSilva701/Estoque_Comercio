@@ -87,6 +87,8 @@
 1. Vai aparecer uma mensagem automatica no Gitub ````Creat Pull Request````. Caso não, clique em **Contribute** no inicio da página na aba da branch que você criou.
 2. Abra um PR da **nova branch** para a branch **develop**
 
+  **PS: Não abrir PR da  develop para a main. Isso será feito após todas as contribuições terem sido mergeadas na *develop***
+
 ## Rodar a aplicação 
 **FRONTEND**
 <!-- 1. Abra o terminal e entre na pasta FronEnd através de ```cd FrontEnd```
