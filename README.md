@@ -1,5 +1,10 @@
 # Estoque_Comercio
 
+## Cria uma nova branch
+1. Branchs
+2. New branch
+3. Defini um nome para a branch
+
 ## Clonar o repositorio
 1. Na sua maquina abra o git bash e escreva ```git clone LINK DO REPOSITORIO```
    * PS: O link do repositório está em ```<>code```. É o ```HTTPS```
