@@ -80,7 +80,7 @@
 5. Envie as alterações para o repositório remoto:
 ```git push origin NOME DA BRANCH```
 
-## Abrir o banco de dados (Não rodar ao clonar o repositorio)
+## Rodar o banco de dados (Não rodar ao clonar o repositorio)
 ```npx sequelize-cli db:migrate```
 
 ## Pull Request
