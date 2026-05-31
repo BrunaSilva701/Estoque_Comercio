@@ -11,6 +11,8 @@ const where = busca
   ? {
       [Op.or]: [
         { descricao: { [Op.like]: `%${busca}%` } },
+        { cor: { [Op.like]: `%${busca}%` } },
+        { marca: { [Op.like]: `%${busca}%` } },
         { id: !isNaN(busca) ? busca : null }
       ]
     }
@@ -40,16 +42,24 @@ const where = busca
   },
 
   // Criar um novo produto
-  async criar(req, res) {
-    try {
-      const { descricao, preco, marca, cor, quantidade } = req.body;
-      const produto = await Produto.create({ descricao, preco, marca, cor, quantidade });
-      
-      return res.status(201).json(produto);
-    } catch (error) {
-      return res.status(400).json({ error: 'Erro ao criar produto. Verifique os dados.' });
+async criar(req, res) {
+  try {
+    const { descricao, preco, marca, cor, quantidade } = req.body;
+
+    // Validação para garantir que todos os campos foram preenchidos
+    if (!descricao || !preco || !marca || !cor || !quantidade) {
+      return res.status(400).json({ 
+        error: 'Todos os campos (descrição, preço, marca, cor e quantidade) são obrigatórios.' 
+      });
     }
-  },
+
+    const produto = await Produto.create({ descricao, preco, marca, cor, quantidade });
+    
+    return res.status(201).json(produto);
+  } catch (error) {
+    return res.status(400).json({ error: 'Erro ao criar produto. Verifique os dados.' });
+  }
+},
 
   // Atualizar um produto existente
   async atualizar(req, res) {
