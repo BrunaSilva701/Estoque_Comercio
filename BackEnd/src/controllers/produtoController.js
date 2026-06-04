@@ -18,7 +18,7 @@ const where = busca
     }
   : {};
 
-    const produtos = await Produto.findAll({ where });
+    const produtos = await Produto.findAll({ where, order: [['descricao', 'ASC']] });
 
     return res.status(200).json(produtos);
   } catch (error) {
@@ -51,6 +51,10 @@ async criar(req, res) {
       return res.status(400).json({ 
         error: 'Todos os campos (descrição, preço, marca, cor e quantidade) são obrigatórios.' 
       });
+    }
+
+    if (preco <= 0 || quantidade <0){
+      return res.status(400).json({error: 'Preço e quantidade devem ser maiores que 0'})
     }
 
     const produto = await Produto.create({ descricao, preco, marca, cor, quantidade });
