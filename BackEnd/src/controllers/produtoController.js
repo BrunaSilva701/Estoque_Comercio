@@ -1,5 +1,6 @@
 const { Produto } = require('../models');
 const { Op } = require('sequelize');
+const { formatId } = require('../utils/idFormatter');
 
 module.exports = {
   // Listar todos os produtos
@@ -13,14 +14,19 @@ const where = busca
         { descricao: { [Op.like]: `%${busca}%` } },
         { cor: { [Op.like]: `%${busca}%` } },
         { marca: { [Op.like]: `%${busca}%` } },
-        { id: !isNaN(busca) ? busca : null }
+        { id: !isNaN(busca) ? Number(busca) : null }
       ]
     }
   : {};
 
     const produtos = await Produto.findAll({ where, order: [['descricao', 'ASC']] });
 
-    return res.status(200).json(produtos);
+    const produtosFormatados = produtos.map(produto => ({
+      ...produto.toJSON(),
+      id: formatId(produto.id)
+    }));
+
+    return res.status(200).json(produtosFormatados);
   } catch (error) {
     return res.status(500).json({ error: 'Erro ao buscar produtos.' });
   }
@@ -35,7 +41,7 @@ const where = busca
         return res.status(404).json({ error: 'Produto não encontrado.' });
       }
 
-      return res.status(200).json(produto);
+      return res.status(200).json({...produto.toJSON(), id: formatId(produto.id) });
     } catch (error) {
       return res.status(500).json({ error: 'Erro ao buscar o produto.' });
     }
@@ -58,8 +64,7 @@ async criar(req, res) {
     }
 
     const produto = await Produto.create({ descricao, preco, marca, cor, quantidade });
-    
-    return res.status(201).json(produto);
+    return res.status(201).json({...produto.toJSON(), id: formatId(produto.id) });
   } catch (error) {
     return res.status(400).json({ error: 'Erro ao criar produto. Verifique os dados.' });
   }
@@ -79,7 +84,7 @@ async criar(req, res) {
 
       await produto.update({ descricao, preco, marca, cor, quantidade });
 
-      return res.status(200).json(produto);
+      return res.status(200).json({...produto.toJSON(), id: formatId(produto.id) });
     } catch (error) {
       return res.status(400).json({ error: 'Erro ao atualizar produto.' });
     }
