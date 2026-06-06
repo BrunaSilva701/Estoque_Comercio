@@ -5,18 +5,7 @@
  * PS: O link do repositório está em ```<>code```. É o ```HTTPS```
 2. Na sua maquina abra o git bash em arquivos e escreva ```git clone LINK DO REPOSITORIO```
 
-## Cria uma nova branch (Resitorio clonado pela primeira vez)
-1. Acesse o terminal
-2. Acesse a branch develop ````checkout develop````
-3. Faça um git pull (````git pull origin develop````) para receber todas as informações atualizadas
-4. Crie uma nova branch com base na develop usando ````git checkout -b NOME DA BRANCH````
-5. Verifique se está na branch que você criou usando ````git branch -a```` (comando mostra todas as branches disponiveis)
-6. Se não aparecer ````* NOME DA BRANCH````. Faça: git checkout NOME DA BRANCH
-7. Suba a branch para o repositorio ````git push origin NOME DA BRANCH````
-
-   **PS: Abrir uma nova branch para cada auteração**
-
-## Cria uma nova branch (Resitorio já na maquina, ou seja, sofre auterações conforme atualização do github)
+## Cria uma nova branch 
 1. Virifique as branches disponiveis usando ````git branch -a````
 2. Se no repositorio tiver branches diferentes, faça ````git fetch --prune```` (mostra branches novas e apagadas)
 3. Acesse a branch de desenvolvimento ````git checkout develop````
