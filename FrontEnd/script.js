@@ -45,8 +45,9 @@ function renderizarTabela(produtos) {
             ${produto.quantidade}</td>
              <td>${precoFormatado}</td>
             <td>
-                <button class="btn-editar" onclick="abrirEdicao('${produto.id}', '${produto.descricao}', '${produto.marca}', '${produto.cor}', ${produto.quantidade}, '${produto.preco}')">Editar</button>
-                <button class="btn-apagar" onclick="deletarProduto('${produto.id}')">Apagar</button>
+                <button class="btn-editar" onclick="abrirEdicao('${produto.id}', '${produto.descricao}', '${produto.marca}', '${produto.cor}', ${produto.quantidade}, '${produto.preco}')" title="Editar">
+                <i class="bi bi-pencil"></i></button>
+                <button class="btn-apagar" onclick="deletarProduto('${produto.id}')" title="Excluir"><i class="bi bi-trash"></i>Apagar</button>
             </td>
         `;
         tabela.appendChild(tr);
