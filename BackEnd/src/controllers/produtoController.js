@@ -19,7 +19,7 @@ const where = busca
     }
   : {};
 
-    const produtos = await Produto.findAll({ where, order: [['descricao', 'ASC']] });
+    const produtos = await Produto.findAll({ where, order: [['id', 'ASC']] });
 
     const produtosFormatados = produtos.map(produto => ({
       ...produto.toJSON(),
