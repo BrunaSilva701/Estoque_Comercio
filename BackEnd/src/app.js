@@ -3,7 +3,7 @@ const cors = require('cors');
 const path = require('path');
 
 // Caminho corrigido: como app.js e routes estão na mesma pasta 'src'
-const routes = require('./routes/produtoRouter'); 
+const routes = require('./routes/produtoRoutes'); 
 
 const app = express();
 

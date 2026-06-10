@@ -1,95 +1,117 @@
-* {
+*{
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #f4f6f9;
-    color: #333;
+    background: #F1EBDD;
+    color: #34423D;
     padding: 20px;
 }
 
-/* 1. ALTERADO: Mudado para ocupar toda a largura da tela com margens sutis */
 .container {
     width: 100%;
-    max-width: 96vw; /* Consome quase toda a tela, mantendo um respiro nas laterais */
+    max-width: 96vw;
     margin: 0 auto;
-    background-color: #fff;
+    background: #FFF;
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.05);
 }
 
 h1 {
     margin-bottom: 25px;
-    color: #222;
-    border-bottom: 2px solid #ddd;
+    color: #2F5E4E;
+    border-bottom: 2px solid #E6E8E5;
     padding-bottom: 10px;
 }
 
 h2 {
     margin: 20px 0 15px 0;
-    color: #444;
+    color: #34423D;
 }
 
-/* 2. NOVO: Transforma o formulário em Flexbox para alinhar os elementos em linha */
 form {
     display: flex;
-    flex-wrap: wrap; /* Permite quebrar linha quando passar de 3 elementos */
-    gap: 15px;       /* Espaçamento uniforme entre as colunas e linhas */
-    align-items: flex-end; /* Alinha o botão verticalmente com a base dos inputs */
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end;
 }
 
-/* 3. ALTERADO: Define que cada input ocupará 1/3 da linha menos o espaço do gap */
 .form-group {
     flex: 1 1 calc(33.333% - 15px);
-    min-width: 250px; /* Garante que em telas de celular eles fiquem em uma coluna só */
-    margin-bottom: 0; /* O espaçamento agora é controlado pelo gap do form */
+    min-width: 250px;
+    margin-bottom: 0;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
+    font-size: 14px;
     font-weight: 600;
+    color: #34423D;
 }
 
-input[type="text"], input[type="number"] {
+input[type="text"],
+input[type="number"] {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 12px;
+    border: 1px solid #E6E8E5;
+    border-radius: 12px;
     font-size: 14px;
 }
 
-/* 4. ALTERADO: Garante que os botões de submit se ajustem ao layout Flex */
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: #7A9B84;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .3s;
+    border-radius: 999px;
+}
+
 form button {
-    height: 40px; /* Alinha a altura com a dos inputs */
-    padding: 10px 20px;
+    height: 45px;
+    padding: 0 24px;
 }
 
-/* Estilos específicos de cada botão dentro do formulário */
-.btn-cadastrar { 
-    background-color: #28a745; 
-    color: white; 
-    flex: 0 0 auto; /* Não estica, mantém o tamanho do texto */
-}
-.btn-cadastrar:hover { background-color: #218838; }
-
-.btn-salvar { 
-    background-color: #ffc107; 
-    color: #212529; 
+/* Botões do formulário */
+.btn-cadastrar {
+    background: #7A9B84;
+    color: white;
     flex: 0 0 auto;
 }
-.btn-salvar:hover { background-color: #e0a800; }
 
-.btn-cancelar { 
-    background-color: #6c757d; 
-    color: white; 
+.btn-cadastrar:hover {
+    background: #688A72;
+}
+
+.btn-salvar {
+    background: #D49A3A;
+    color: white;
     flex: 0 0 auto;
 }
-.btn-cancelar:hover { background-color: #5a6268; }
+
+.btn-salvar:hover {
+    background: #C0872C;
+}
+
+.btn-cancelar {
+    background: #E3E3E3;
+    color: #34423D;
+    flex: 0 0 auto;
+}
+
+.btn-cancelar:hover {
+    background: #D5D5D5;
+}
 
 .busca-container {
     margin: 30px 0;
@@ -101,10 +123,25 @@ form button {
     flex: 1;
 }
 
-.btn-buscar { background-color: #17a2b8; color: white; }
-.btn-buscar:hover { background-color: #138496; }
+.btn-buscar {
+    background: #C7D2C9;
+    color: #34423D;
+    padding: 12px 24px;
+}
 
-.btn-limpar { background-color: #6c757d; color: white; }
+.btn-buscar:hover {
+    background: #B7C4BA;
+}
+
+.btn-limpar {
+    background: #E3E3E3;
+    color: #34423D;
+    padding: 12px 24px;
+}
+
+.btn-limpar:hover {
+    background: #D5D5D5;
+}
 
 table {
     width: 100%;
@@ -112,19 +149,102 @@ table {
     margin-top: 15px;
 }
 
-th, td {
-    padding: 12px;
+th,td {
+    padding: 14px;
     text-align: left;
-    border-bottom: 1px solid #dee2e6;
 }
 
 th {
-    background-color: #f8f9fa;
+    background: #D8E0D8;
+    color: #34423D;
     font-weight: 600;
 }
 
-.btn-editar { background-color: #ffc107; color: #212529; margin-right: 5px; padding: 5px 10px; font-size: 12px; }
-.btn-editar:hover { background-color: #e0a800; }
+td {
+    border-bottom: 1px solid #E6E8E5;
+}
 
-.btn-apagar { background-color: #dc3545; color: white; padding: 5px 10px; font-size: 12px; }
-.btn-apagar:hover { background-color: #c82333; }
+tr:hover {
+    background: #F7F9F7;
+}
+
+.btn-editar {
+    background: #C7D2C9;
+    color: #34423D;
+    margin-right: 5px;
+    padding: 8px 14px;
+    font-size: 12px;
+}
+
+.btn-editar:hover {
+    background: #B7C4BA;
+}
+
+.btn-apagar {
+    background: #D9534F;
+    color: white;
+    padding: 8px 14px;
+    font-size: 12px;
+}
+
+.btn-apagar:hover {
+    background: #C94440;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+
+/* --- TABLETS E CELULARES GRANDES (Máximo 768px) --- */
+@media (max-width: 768px) {
+    .container {
+        max-width: 98vw; /* Aproveita ainda mais o espaço lateral em tablets */
+        padding: 15px;   /* Reduz o preenchimento interno para ganhar espaço */
+    }
+
+    form {
+        align-items: stretch; /* Faz os inputs e botões ocuparem a largura total */
+    }
+
+    .form-group {
+        flex: 1 1 100%; /* Em tablets, se o espaço apertar, cada input vira uma linha cheia */
+    }
+
+    form button {
+        width: 100%; /* Botões do formulário ocupam a largura total na tela */
+        margin-top: 10px;
+    }
+    
+    /* Faz a tabela permitir rolagem lateral para não quebrar o layout da página */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap; /* Evita que o texto dos cabeçalhos quebre linha esquisito */
+    }
+}
+
+/* --- CELULARES PEQUENOS (Máximo 480px) --- */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px; /* Diminui o título principal para não quebrar em duas linhas */
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    /* Ajusta a barra de busca para empilhar o input e os botões */
+    .busca-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .busca-container input {
+        width: 100%;
+    }
+
+    .busca-container button {
+        width: 100%; /* Botões de buscar e limpar também ficam em largura total */
+    }
+}

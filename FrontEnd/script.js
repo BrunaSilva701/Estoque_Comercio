@@ -19,6 +19,15 @@ function renderizarTabela(produtos) {
     const tabela = document.getElementById('tabelaProdutos');
     tabela.innerHTML = ''; 
 
+    if (produtos.length === 0) {
+        tabela.innerHTML = `
+        <tr>
+        <td colspan="7">Nenhun produto encontrado</td>
+        </tr>
+        `; 
+        return;
+   
+    }
     produtos.forEach(produto => {
         // Converte o preço vindo do banco em formato de moeda Real (R$)
         const precoFormatado = new Intl.NumberFormat('pt-BR', {
@@ -32,11 +41,13 @@ function renderizarTabela(produtos) {
             <td>${produto.descricao}</td>
             <td>${produto.marca}</td>
             <td>${produto.cor}</td>
-            <td>${produto.quantidade}</td>
+            <td style="color: ${produto.quantidade <=5 ? 'red': 'black'};">
+            ${produto.quantidade}</td>
              <td>${precoFormatado}</td>
             <td>
-                <button class="btn-editar" onclick="abrirEdicao('${produto.id}', '${produto.descricao}', '${produto.marca}', '${produto.cor}', ${produto.quantidade}, '${produto.preco}')">Editar</button>
-                <button class="btn-apagar" onclick="deletarProduto('${produto.id}')">Apagar</button>
+                <button class="btn-editar" onclick="abrirEdicao('${produto.id}', '${produto.descricao}', '${produto.marca}', '${produto.cor}', ${produto.quantidade}, '${produto.preco}')" title="Editar">
+                <i class="bi bi-pencil"></i></button>
+                <button class="btn-apagar" onclick="deletarProduto('${produto.id}')" title="Excluir"><i class="bi bi-trash"></i>Apagar</button>
             </td>
         `;
         tabela.appendChild(tr);
@@ -51,7 +62,8 @@ async function cadastrarProduto(event) {
     const cor = document.getElementById('cor').value.trim();
     const quantidade = document.getElementById('quantidade').value;
     const preco = document.getElementById('preco').value;
-
+          if (!descricao || !marca || !cor || !quantidade ||!preco)
+            alert(' obrigatórios preencher todos os Campos ')
     try {
         const response = await fetch(API_URL, {
             method: 'POST',
@@ -60,6 +72,7 @@ async function cadastrarProduto(event) {
         });
         
         if (response.ok) {
+           alert ('Produto Cadastrado com sucesso')
             document.getElementById('formProduto').reset();
             carregarProdutos();
         } else {
@@ -108,6 +121,7 @@ async function salvarEdicao(event) {
         });
         
         if (response.ok) {
+            alert('Produto atualizado!')
             fecharEdicao();
             carregarProdutos();
         } else {
