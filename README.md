@@ -17,40 +17,6 @@
 
    **PS: Abrir uma nova branch para cada auteração**
    
-## Dependencias do BackEnd
-* PS: Rodar cada dependencia dentro da pasta especifica. Nesse caso, a ```BackEnd```
-* PS: Rodar na sua maquina apenas a dependencia necessária, ou seja, ```npm install```. Caso seja necessário rodar outra dependencia o projeto não vai iniciar e o VsCode vai avisar que está faltando 
-````
-• npm init -y (Inicializar projeto) 
-• npm install express cors sequelize sqlite3 dotenv (Dependências principais) 
-• npm install --save-dev sequelize-cli (Dependências de desenvolvimento) 
-• npm install --save-dev nodemon (reinicia o servidor automaticamente)
-
-- Rodar ao clonar
-• npm install (todas devem rodar ao clonar o repositorio pois vai permitir os testes)
-````
-
-## Criação de arquivos BackEnd (Não precisa rodar ao clonar)
-1. Cria a pasta src
-2. Dentro da src roda ```npx sequelize-cli init``` gerando a estrutura de desenvolvimento
-
-<!-- ## Dependencias do FrontEnd
-* PS: Rodar cada dependencia dentro da pasta especifica. Nesse caso, a ```FrontEnd```
-* PS: Rodar na sua maquina apenas as dependencias necessárias, ou seja, ```npm install```. Caso seja necessário rodar outra dependencia o projeto não vai iniciar e o  VsCode vai avisar que está faltando 
-````
-• npx create-vite@latest frontend (Criar projeto React) (Não precisa rodar novamente)
-
-- Dentro da pasta vite-project
-• npm install (Instalar dependências ) 
-• npm install axios (Instalar Axios )
-
-- Rodar ao clonar
-• npm install (Instalar dependências ) (todas devem rodar ao clonar o repositorio pois vai permitir os testes)
-```` -->
-
-## Arquivos Front-End
-1. Está dividido em HTML, CSS e JavaScript
-   
 ## Subir alterações para o repositório
 1. Verifique em qual branch você está:
 ```git branch -a```
@@ -69,14 +35,47 @@
 5. Envie as alterações para o repositório remoto:
 ```git push origin NOME DA BRANCH```
 
-## Rodar o banco de dados (Não rodar ao clonar o repositorio)
-```npx sequelize-cli db:migrate```
-
 ## Pull Request
 1. Vai aparecer uma mensagem automatica no Gitub ````Creat Pull Request````. Caso não, clique em **Contribute** no inicio da página na aba da branch que você criou.
 2. Abra um PR da **nova branch** para a branch **develop**
 
   **PS: Não abrir PR da  develop para a main. Isso será feito após todas as contribuições terem sido mergeadas na *develop***
+
+## Dependencias do BackEnd
+* PS: Rodar cada dependencia dentro da pasta especifica. Nesse caso, a ```BackEnd```
+* PS: Rodar na sua maquina apenas a dependencia necessária, ou seja, ```npm install```. Caso seja necessário rodar outra dependencia o projeto não vai iniciar e o VsCode vai avisar que está faltando 
+````
+• npm init -y (Inicializar projeto) 
+• npm install express cors sequelize sqlite3 dotenv (Dependências principais) 
+• npm install --save-dev sequelize-cli (Dependências de desenvolvimento) 
+• npm install --save-dev nodemon (reinicia o servidor automaticamente)
+
+- Rodar ao clonar
+• npm install (todas devem rodar ao clonar o repositorio pois vai permitir os testes)
+````
+
+## Criação de arquivos BackEnd (Não precisa rodar ao clonar)
+1. Cria a pasta src
+2. Dentro da src roda ```npx sequelize-cli init``` gerando a estrutura de desenvolvimento
+
+## Rodar o banco de dados (Não rodar ao clonar o repositorio)
+```npx sequelize-cli db:migrate```
+<!-- ## Dependencias do FrontEnd
+* PS: Rodar cada dependencia dentro da pasta especifica. Nesse caso, a ```FrontEnd```
+* PS: Rodar na sua maquina apenas as dependencias necessárias, ou seja, ```npm install```. Caso seja necessário rodar outra dependencia o projeto não vai iniciar e o  VsCode vai avisar que está faltando 
+````
+• npx create-vite@latest frontend (Criar projeto React) (Não precisa rodar novamente)
+
+- Dentro da pasta vite-project
+• npm install (Instalar dependências ) 
+• npm install axios (Instalar Axios )
+
+- Rodar ao clonar
+• npm install (Instalar dependências ) (todas devem rodar ao clonar o repositorio pois vai permitir os testes)
+```` -->
+
+## Arquivos Front-End
+Está dividido em HTML, CSS e JavaScript
 
 ## Rodar a aplicação 
 **FRONTEND**
@@ -92,4 +91,23 @@
 2. Rode no terminal BackEnd ```node src/app.js```
 
 ## Rotas utilizadas
-![](./img/rotas.png)
+**POST**
+````
+/produtos
+````
+
+**GET**
+````
+/produtos
+/produtos/:id
+````
+
+**UPDATE**
+````
+/produtos/:id
+````
+
+**DELETE**
+````
+/produtos/:id
+````

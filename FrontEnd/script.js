@@ -63,7 +63,7 @@ async function cadastrarProduto(event) {
     const quantidade = document.getElementById('quantidade').value;
     const preco = document.getElementById('preco').value;
           if (!descricao || !marca || !cor || !quantidade ||!preco)
-            alert(' obrigatórios preencher todosmos Campos ')
+            alert(' obrigatórios preencher todos os Campos ')
     try {
         const response = await fetch(API_URL, {
             method: 'POST',
