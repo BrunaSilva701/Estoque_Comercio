@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #c5d6f0;
+    background-color: #ddf9e0;
     color: #333;
     padding: 20px;
 }
@@ -71,11 +71,12 @@ form button {
 
 /* Estilos específicos de cada botão dentro do formulário */
 .btn-cadastrar { 
-    background-color: #28a745; 
-    color: white; 
+    background-color: #4caf50; 
+    color: black; 
     flex: 0 0 auto; /* Não estica, mantém o tamanho do texto */
+    border-radius: 4px;
 }
-.btn-cadastrar:hover { background-color: #218838; }
+.btn-cadastrar:hover { background-color: #1f8b4c; }
 
 .btn-salvar { 
     background-color: #ffc107; 
@@ -101,10 +102,10 @@ form button {
     flex: 1;
 }
 
-.btn-buscar { background-color: #17a2b8; color: white; }
-.btn-buscar:hover { background-color: #138496; }
+.btn-buscar { background-color: #4caf50; color: black; border-radius: 4px; }
+.btn-buscar:hover { background-color: #1f8b4c; }
 
-.btn-limpar { background-color: #6c757d; color: white; }
+.btn-limpar { background-color: #8e949a; color: black; border-radius: 4px;}
 
 table {
     width: 100%;
@@ -128,3 +129,61 @@ th {
 
 .btn-apagar { background-color: #dc3545; color: white; padding: 5px 10px; font-size: 12px; }
 .btn-apagar:hover { background-color: #c82333; }
+
+/* ==========================================================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+
+/* --- TABLETS E CELULARES GRANDES (Máximo 768px) --- */
+@media (max-width: 768px) {
+    .container {
+        max-width: 98vw; /* Aproveita ainda mais o espaço lateral em tablets */
+        padding: 15px;   /* Reduz o preenchimento interno para ganhar espaço */
+    }
+
+    form {
+        align-items: stretch; /* Faz os inputs e botões ocuparem a largura total */
+    }
+
+    .form-group {
+        flex: 1 1 100%; /* Em tablets, se o espaço apertar, cada input vira uma linha cheia */
+    }
+
+    form button {
+        width: 100%; /* Botões do formulário ocupam a largura total na tela */
+        margin-top: 10px;
+    }
+    
+    /* Faz a tabela permitir rolagem lateral para não quebrar o layout da página */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap; /* Evita que o texto dos cabeçalhos quebre linha esquisito */
+    }
+}
+
+/* --- CELULARES PEQUENOS (Máximo 480px) --- */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px; /* Diminui o título principal para não quebrar em duas linhas */
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    /* Ajusta a barra de busca para empilhar o input e os botões */
+    .busca-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .busca-container input {
+        width: 100%;
+    }
+
+    .busca-container button {
+        width: 100%; /* Botões de buscar e limpar também ficam em largura total */
+    }
+}
